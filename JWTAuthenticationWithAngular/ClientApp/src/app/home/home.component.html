@@ -1,0 +1,25 @@
+<form #userForm="ngForm" *ngIf="!unauthorized">
+  <div class="row form-group">
+    <div class=" col-md-3">
+      <label class="lblUserName" for="UserName">User Name</label>
+    </div>
+    <div class="col-md-3">
+      <input type="text"
+             name="username" #username="ngModel" [(ngModel)]="UserInformation.username" required>
+    </div>
+    <div class=" col-md-3">
+      <label class="lblPassword" for="Password">Password</label>
+    </div>
+    <div class="col-md-3">
+      <input type="text"
+             name="password" #password="ngModel" [(ngModel)]="UserInformation.password" required>
+    </div>
+  </div>
+  <div class="row form-group" style="text-align:right">
+    <button class="btn btn-primary" type="button" (click)="Login(userForm)">Login</button>
+  </div>
+</form>
+
+<div class="row form-group" style="text-align:center">
+  {{successMessage}}
+</div>
