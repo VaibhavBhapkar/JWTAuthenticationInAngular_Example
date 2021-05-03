@@ -29,10 +29,8 @@ export class Service {
   }
 
   GETWithToken(url: string): Observable<any> {
-    this.usertoken = sessionStorage.getItem("token");
-    return this.http.get(this._baseURL + url, {
-      headers: new HttpHeaders().set('Authorization', "Bearer " + this.usertoken)
-    }).pipe(catchError(error => {
+    
+    return this.http.get(this._baseURL + url).pipe(catchError(error => {
       if (error.error instanceof ErrorEvent) {
         this.errorMsg = `Error: ${error.error.message}`;
       } else {
